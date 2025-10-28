@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú Lateral Nexa</title>
+  <style>
+    /* ------------------ ESTILOS BASE ------------------ */
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #2d0030, #0b0010);
+      color: #fff;
+      display: flex;
+      min-height: 100vh;
+    }
+ 
+    /* ------------------ MENÚ LATERAL ------------------ */
+    .sidebar {
+      background-color: #1a001a;
+      width: 280px;
+      padding: 20px 0;
+      box-shadow: 3px 0 10px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+ 
+    .logo {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: #e066ff;
+      letter-spacing: 2px;
+    }
+ 
+    .menu-btn {
+      background-color: #cc33ff;
+      color: #fff;
+      border: none;
+      padding: 14px 20px;
+      margin: 5px 15px;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      width: calc(100% - 30px);
+    }
+ 
+    .menu-btn:hover {
+      background-color: #e066ff;
+      transform: translateX(5px);
+    }
+ 
+    /* ------------------ SUBMENÚ (ACORDEÓN) ------------------ */
+    .submenu {
+      max-height: 0;
+      overflow: hidden;
+      background-color: #330033;
+      margin: 0 15px 5px 15px;
+      border-radius: 8px;
+      transition: max-height 0.4s ease;
+    }
+ 
+    .submenu.open {
+      max-height: 400px;
+    }
+ 
+    .submenu a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.3s;
+    }
+ 
+    .submenu a:hover {
+      background-color: #4d0066;
+    }
+ 
+    /* ------------------ CONTENIDO PRINCIPAL ------------------ */
+    .content {
+      flex: 1;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at center, #2d0030, #0b0010);
+    }
+ 
+    iframe {
+      flex: 1;
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+ 
+    .placeholder {
+      text-align: center;
+      margin-top: 20%;
+      font-size: 1.5rem;
+      opacity: 0.7;
+    }
+ 
+    /* ------------------ RESPONSIVE ------------------ */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+      }
+      .menu-btn {
+        font-size: 1rem;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">NEXA</div>
+ 
+    <!-- Botones principales -->
+    <button class="menu-btn" data-toggle="submenu-aplicativos">Aplicativos</button>
+    <div class="submenu" id="submenu-aplicativos">
+      <a href="https://autoserviciopwd.nexabpo.com:9251/authorization.do" target="_blank">ADSelf</a>
+      <a href="https://cariai.com/agentui/" target="_blank">Cari AI</a>
+      <a href="http://10.250.100.157/wcm/LoginEJS.aspx" target="_blank">Genesys Administrator</a>
+      <a href="http://10.32.2.11:443/UsersManagement/session?usuario=1016076221" target="_blank">Uno a uno (Ingreso al sistema)</a>
+      <a href="http://10.32.4.160/dude/main.html" target="_blank">MikroTik DUDE</a>
+      <a href="https://nexabpo.educativo.co/login/index.php" target="_blank">Unix</a>
+      <a href="https://vpn4.nexabpo.com/dana-na/auth/url_admin/welcome.cgi?p=forced-off" target="_blank">VPN4</a>
+      <a href="https://vpn4.nexabpo.com/dana-na/auth/url_admin/welcome.cgi?p=forced-off" target="_blank">VPN3</a>
+    </div>
+ 
+    <button class="menu-btn" data-toggle="submenu-aplicativos-claro">Aplicativos Claro</button>
+    <div class="submenu" id="submenu-aplicativos-claro">
+      <a href="https://claro1.com" target="_blank">VPN Claro</a>
+      <a href="https://claro2.com" target="_blank">Correo Zimbra</a>
+      <a href="https://claro3.com" target="_blank">Smax TI</a>
+    </div>
+ 
+    <button class="menu-btn">Documentación</button>
+    
+<button class="menu-btn" onclick="window.open('https://graval-my.sharepoint.com/:x:/r/personal/sfgomeze_ventasyservicios_com_co/_layouts/15/Doc.aspx?sourcedoc=%7B9483C799-D32A-4EA0-967D-CBC3BCAE8930%7D&file=Malla%20Service%20Desk.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&web=1','_blank')">
+  Malla de turno
+</button>
+
+<button class="menu-btn" onclick="window.open('https://graval-my.sharepoint.com/:x:/r/personal/reescobar_ventasyservicios_com_co/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B6c886857-7691-40c0-9bd9-6fa161fd59bb%7D&wdOrigin=TEAMS-MAGLEV.undefined_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1758725680137&web=1&xsdata=MDV8MDJ8fDI0OTVlNzljYzJjMzRkZTExNjNmMDhkZGZiN2E1MTlmfDEwYTc2NzEyOTRmNjQ2YTI5MTU1MzFiZDhiNzZmOTM3fDB8MHw2Mzg5NDMyMjQ5MzA0NDA3Njd8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pSbU1ESXpNakl3TFRrek9XWXRORGd3WkMxaE5UaGlMV0pqWW1Rd05XTXlPVEk0TVY5aVlqYzRZMkUzWlMxa1pEQXhMVFJsT1RjdFlXRXpNQzB3WVRrMk9UQmpORE16T1dWQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMU9EY3lOVFk1TWpjd05RPT18YzBjZDYwMGM3MGFmNGU5YjE2M2YwOGRkZmI3YTUxOWZ8ZmQ4ODA4ZjFhZDA5NDlmM2EyMWQwZGFjMmFlNGM1MTQ%3D&sdata=MzlRaXVKbnM3ME1DRitLVlRiN1pSanJjVnpnN05RRW5EM1h4V0lHcWVUUT0%3D&ovuser=10a76712-94f6-46a2-9155-31bd8b76f937%2Csemilleroti%40ventasyservicios.com.co')">
+  Disponibilidad
+</button>
+
+
+
+    <button class="menu-btn">Categorías de Cierre</button>
+ 
+    <!-- NUEVOS BOTONES CON FORMS -->
+    <button class="menu-btn" onclick="loadForm('citas')">Citas a laboratorio</button>
+    <button class="menu-btn" onclick="loadForm('soporte')">Soporte en sitio</button>
+    <button class="menu-btn" onclick="loadForm('buzon')">Buzón de sugerencias</button>
+  </div>
+ 
+  <div class="content" id="mainContent">
+    <div class="placeholder">
+      <h1>Bienvenido a la Intraservice</h1>
+      <p>Selecciona una opción en el menú lateral.</p>
+    </div>
+  </div>
+ 
+  <!-- ------------------ SCRIPT FUNCIONALIDAD ------------------ -->
+  <script>
+    // Submenús tipo acordeón
+    document.querySelectorAll('[data-toggle]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const submenuId = btn.getAttribute('data-toggle');
+        const submenu = document.getElementById(submenuId);
+ 
+        document.querySelectorAll('.submenu').forEach(menu => {
+          if (menu !== submenu) menu.classList.remove('open');
+        });
+ 
+        submenu.classList.toggle('open');
+      });
+    });
+ 
+    // Cargar formularios dentro del área central
+    function loadForm(type) {
+      const main = document.getElementById('mainContent');
+      let formURL = '';
+ 
+      switch (type) {
+        case 'citas':
+          formURL = 'https://apps.powerapps.com/play/e/default-10a76712-94f6-46a2-9155-31bd8b76f937/a/1015f12b-5707-452e-9b7b-5571bc0bab7d?tenantId=10a76712-94f6-46a2-9155-31bd8b76f937&hint=6cbe17c3-c1a6-41ec-a1bc-df94348d405e&sourcetime=1751923088876';
+
+          break;
+        case 'soporte':
+          formURL = 'https://forms.office.com/pages/responsepage.aspx?id=TU_FORMULARIO_SOPORTE';
+          break;
+        case 'buzon':
+          formURL = 'https://forms.office.com/pages/responsepage.aspx?id=TU_FORMULARIO_BUZON';
+          break;
+      }
+ 
+      if (formURL) {
+        main.innerHTML = `
+          <div style="text-align:center; padding:15px; background:#330033; color:#e066ff; font-weight:600;">
+            ${type === 'citas' ? '🧪 Citas a laboratorio' : type === 'soporte' ? '💻 Soporte en sitio' : '📬 Buzón de sugerencias'}
+          </div>
+          <iframe src="${formURL}" allowfullscreen></iframe>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
