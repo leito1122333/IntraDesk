@@ -1,219 +1,369 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menú Lateral Nexa</title>
-  <style>
-    /* ------------------ ESTILOS BASE ------------------ */
-    body {
-      margin: 0;
-      font-family: 'Poppins', 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at center, #2d0030, #0b0010);
-      color: #fff;
-      display: flex;
-      min-height: 100vh;
-    }
- 
-    /* ------------------ MENÚ LATERAL ------------------ */
-    .sidebar {
-      background-color: #1a001a;
-      width: 280px;
-      padding: 20px 0;
-      box-shadow: 3px 0 10px rgba(0, 0, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease;
-    }
- 
-    .logo {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 25px;
-      color: #e066ff;
-      letter-spacing: 2px;
-    }
- 
-    .menu-btn {
-      background-color: #cc33ff;
-      color: #fff;
-      border: none;
-      padding: 14px 20px;
-      margin: 5px 15px;
-      border-radius: 10px;
-      text-align: left;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-      width: calc(100% - 30px);
-    }
- 
-    .menu-btn:hover {
-      background-color: #e066ff;
-      transform: translateX(5px);
-    }
- 
-    /* ------------------ SUBMENÚ (ACORDEÓN) ------------------ */
-    .submenu {
-      max-height: 0;
-      overflow: hidden;
-      background-color: #330033;
-      margin: 0 15px 5px 15px;
-      border-radius: 8px;
-      transition: max-height 0.4s ease;
-    }
- 
-    .submenu.open {
-      max-height: 400px;
-    }
- 
-    .submenu a {
-      display: block;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 10px 18px;
-      font-size: 0.95rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: background 0.3s;
-    }
- 
-    .submenu a:hover {
-      background-color: #4d0066;
-    }
- 
-    /* ------------------ CONTENIDO PRINCIPAL ------------------ */
-    .content {
-      flex: 1;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      background: radial-gradient(circle at center, #2d0030, #0b0010);
-    }
- 
-    iframe {
-      flex: 1;
-      border: none;
-      width: 100%;
-      height: 100%;
-    }
- 
-    .placeholder {
-      text-align: center;
-      margin-top: 20%;
-      font-size: 1.5rem;
-      opacity: 0.7;
-    }
- 
-    /* ------------------ RESPONSIVE ------------------ */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-      }
-      .menu-btn {
-        font-size: 1rem;
-        padding: 12px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menú Lateral Nexa</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #2d0030, #0b0010);
+    color: #fff;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    background-color: #1a001a;
+    width: 280px;
+    padding: 20px 0;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .logo {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #e066ff;
+    letter-spacing: 2px;
+  }
+
+  .menu-btn {
+    background-color: #cc33ff;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    margin: 5px 15px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: calc(100% - 30px);
+  }
+
+  .menu-btn:hover {
+    background-color: #e066ff;
+    transform: translateX(5px);
+  }
+
+  .submenu {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #330033;
+    margin: 0 15px 5px 15px;
+    border-radius: 8px;
+    transition: max-height 0.4s ease;
+  }
+
+  .submenu.open {
+    max-height: 400px;
+  }
+
+  .submenu a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+  }
+
+  .submenu a:hover {
+    background-color: #4d0066;
+  }
+
+  .content {
+    flex: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at center, #2d0030, #0b0010);
+  }
+
+  iframe {
+    flex: 1;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .placeholder {
+    text-align: center;
+    margin-top: 20%;
+    font-size: 1.5rem;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; }
+    .menu-btn { font-size: 1rem; padding: 12px; }
+  }
+
+  /* Botón flotante */
+  .btn-registrar-turno {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: linear-gradient(135deg, #cc33ff, #6600ff, #00e6e6);
+    background-size: 300% 300%;
+    color: #fff !important;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(204, 51, 255, 0.6);
+    transition: all 0.4s ease;
+    animation: gradientShift 6s infinite linear;
+  }
+
+  .btn-registrar-turno:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(0, 230, 230, 0.8),
+                0 0 35px rgba(204, 51, 255, 0.8);
+    background-position: right center;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .sub-doc-btn {
+    background: linear-gradient(135deg,#cc33ff,#6600ff,#00e6e6);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-size: 300% 300%;
+    animation: gradientShift 6s infinite linear;
+    transition: transform 0.3s ease;
+  }
+
+  .sub-doc-btn:hover { transform: scale(1.08); }
+
+  .form-container {
+    background: #1a001a;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 25px;
+    box-shadow: 0 0 15px rgba(204, 51, 255, 0.2);
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form-container input, .form-container textarea, .form-container select {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .form-container button {
+    margin: 10px 8px 0 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .btn-clear { background-color: #ff0066; color: #fff; }
+  .btn-copy { background-color: #00e6e6; color: #000; }
+</style>
 </head>
+
+<header>
+  <button class="btn-registrar-turno" onclick="window.open()">Registrar turno</button>
+</header>
+
 <body>
   <div class="sidebar">
     <div class="logo">NEXA</div>
- 
-    <!-- Botones principales -->
+
     <button class="menu-btn" data-toggle="submenu-aplicativos">Aplicativos</button>
     <div class="submenu" id="submenu-aplicativos">
       <a href="https://autoserviciopwd.nexabpo.com:9251/authorization.do" target="_blank">ADSelf</a>
       <a href="https://cariai.com/agentui/" target="_blank">Cari AI</a>
       <a href="http://10.250.100.157/wcm/LoginEJS.aspx" target="_blank">Genesys Administrator</a>
-      <a href="http://10.32.2.11:443/UsersManagement/session?usuario=1016076221" target="_blank">Uno a uno (Ingreso al sistema)</a>
+      <a href="http://10.32.2.11:443/UsersManagement/session?usuario=1016076221" target="_blank">Uno a uno</a>
       <a href="http://10.32.4.160/dude/main.html" target="_blank">MikroTik DUDE</a>
       <a href="https://nexabpo.educativo.co/login/index.php" target="_blank">Unix</a>
-      <a href="https://vpn4.nexabpo.com/dana-na/auth/url_admin/welcome.cgi?p=forced-off" target="_blank">VPN4</a>
-      <a href="https://vpn4.nexabpo.com/dana-na/auth/url_admin/welcome.cgi?p=forced-off" target="_blank">VPN3</a>
+      <a href="https://vpn4.nexabpo.com" target="_blank">VPN4</a>
+      <a href="https://vpn3.nexabpo.com" target="_blank">VPN3</a>
     </div>
- 
+
     <button class="menu-btn" data-toggle="submenu-aplicativos-claro">Aplicativos Claro</button>
     <div class="submenu" id="submenu-aplicativos-claro">
       <a href="https://claro1.com" target="_blank">VPN Claro</a>
       <a href="https://claro2.com" target="_blank">Correo Zimbra</a>
       <a href="https://claro3.com" target="_blank">Smax TI</a>
     </div>
- 
-    <button class="menu-btn">Documentación</button>
+
     
-<button class="menu-btn" onclick="window.open('https://graval-my.sharepoint.com/:x:/r/personal/sfgomeze_ventasyservicios_com_co/_layouts/15/Doc.aspx?sourcedoc=%7B9483C799-D32A-4EA0-967D-CBC3BCAE8930%7D&file=Malla%20Service%20Desk.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&web=1','_blank')">
+    <button class="menu-btn" id="btn-documentacion">Documentación</button>
+    <button class="menu-btn" onclick="window.open('https://graval-my.sharepoint.com/:x:/r/personal/sfgomeze_ventasyservicios_com_co/_layouts/15/Doc.aspx?sourcedoc=%7B9483C799-D32A-4EA0-967D-CBC3BCAE8930%7D&amp;file=Malla%20Service%20Desk.xlsx&amp;action=default&amp;mobileredirect=true&amp;DefaultItemOpen=1&amp;web=1','_blank')">
   Malla de turno
 </button>
 
-<button class="menu-btn" onclick="window.open('https://graval-my.sharepoint.com/:x:/r/personal/reescobar_ventasyservicios_com_co/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B6c886857-7691-40c0-9bd9-6fa161fd59bb%7D&wdOrigin=TEAMS-MAGLEV.undefined_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1758725680137&web=1&xsdata=MDV8MDJ8fDI0OTVlNzljYzJjMzRkZTExNjNmMDhkZGZiN2E1MTlmfDEwYTc2NzEyOTRmNjQ2YTI5MTU1MzFiZDhiNzZmOTM3fDB8MHw2Mzg5NDMyMjQ5MzA0NDA3Njd8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pSbU1ESXpNakl3TFRrek9XWXRORGd3WkMxaE5UaGlMV0pqWW1Rd05XTXlPVEk0TVY5aVlqYzRZMkUzWlMxa1pEQXhMVFJsT1RjdFlXRXpNQzB3WVRrMk9UQmpORE16T1dWQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMU9EY3lOVFk1TWpjd05RPT18YzBjZDYwMGM3MGFmNGU5YjE2M2YwOGRkZmI3YTUxOWZ8ZmQ4ODA4ZjFhZDA5NDlmM2EyMWQwZGFjMmFlNGM1MTQ%3D&sdata=MzlRaXVKbnM3ME1DRitLVlRiN1pSanJjVnpnN05RRW5EM1h4V0lHcWVUUT0%3D&ovuser=10a76712-94f6-46a2-9155-31bd8b76f937%2Csemilleroti%40ventasyservicios.com.co')">
+<button class="menu-btn" onclick="window.open('https://graval-my.sharepoint.com/:x:/r/personal/reescobar_ventasyservicios_com_co/_layouts/15/Doc2.aspx?action=edit&amp;sourcedoc=%7B6c886857-7691-40c0-9bd9-6fa161fd59bb%7D&amp;wdOrigin=TEAMS-MAGLEV.undefined_ns.rwc&amp;wdExp=TEAMS-TREATMENT&amp;wdhostclicktime=1758725680137&amp;web=1&amp;xsdata=MDV8MDJ8fDI0OTVlNzljYzJjMzRkZTExNjNmMDhkZGZiN2E1MTlmfDEwYTc2NzEyOTRmNjQ2YTI5MTU1MzFiZDhiNzZmOTM3fDB8MHw2Mzg5NDMyMjQ5MzA0NDA3Njd8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pSbU1ESXpNakl3TFRrek9XWXRORGd3WkMxaE5UaGlMV0pqWW1Rd05XTXlPVEk0TVY5aVlqYzRZMkUzWlMxa1pEQXhMVFJsT1RjdFlXRXpNQzB3WVRrMk9UQmpORE16T1dWQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMU9EY3lOVFk1TWpjd05RPT18YzBjZDYwMGM3MGFmNGU5YjE2M2YwOGRkZmI3YTUxOWZ8ZmQ4ODA4ZjFhZDA5NDlmM2EyMWQwZGFjMmFlNGM1MTQ%3D&amp;sdata=MzlRaXVKbnM3ME1DRitLVlRiN1pSanJjVnpnN05RRW5EM1h4V0lHcWVUUT0%3D&amp;ovuser=10a76712-94f6-46a2-9155-31bd8b76f937%2Csemilleroti%40ventasyservicios.com.co')">
   Disponibilidad
 </button>
 
-
-
-    <button class="menu-btn">Categorías de Cierre</button>
- 
-    <!-- NUEVOS BOTONES CON FORMS -->
     <button class="menu-btn" onclick="loadForm('citas')">Citas a laboratorio</button>
     <button class="menu-btn" onclick="loadForm('soporte')">Soporte en sitio</button>
     <button class="menu-btn" onclick="loadForm('buzon')">Buzón de sugerencias</button>
   </div>
- 
+
   <div class="content" id="mainContent">
     <div class="placeholder">
       <h1>Bienvenido a la Intraservice</h1>
       <p>Selecciona una opción en el menú lateral.</p>
     </div>
   </div>
- 
-  <!-- ------------------ SCRIPT FUNCIONALIDAD ------------------ -->
-  <script>
-    // Submenús tipo acordeón
-    document.querySelectorAll('[data-toggle]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const submenuId = btn.getAttribute('data-toggle');
-        const submenu = document.getElementById(submenuId);
- 
-        document.querySelectorAll('.submenu').forEach(menu => {
-          if (menu !== submenu) menu.classList.remove('open');
-        });
- 
-        submenu.classList.toggle('open');
-      });
-    });
- 
-    // Cargar formularios dentro del área central
-    function loadForm(type) {
-      const main = document.getElementById('mainContent');
-      let formURL = '';
- 
-      switch (type) {
-        case 'citas':
-          formURL = 'https://apps.powerapps.com/play/e/default-10a76712-94f6-46a2-9155-31bd8b76f937/a/1015f12b-5707-452e-9b7b-5571bc0bab7d?tenantId=10a76712-94f6-46a2-9155-31bd8b76f937&hint=6cbe17c3-c1a6-41ec-a1bc-df94348d405e&sourcetime=1751923088876';
 
-          break;
-        case 'soporte':
-          formURL = 'https://forms.office.com/pages/responsepage.aspx?id=TU_FORMULARIO_SOPORTE';
-          break;
-        case 'buzon':
-          formURL = 'https://forms.office.com/pages/responsepage.aspx?id=TU_FORMULARIO_BUZON';
-          break;
-      }
- 
-      if (formURL) {
-        main.innerHTML = `
-          <div style="text-align:center; padding:15px; background:#330033; color:#e066ff; font-weight:600;">
-            ${type === 'citas' ? '🧪 Citas a laboratorio' : type === 'soporte' ? '💻 Soporte en sitio' : '📬 Buzón de sugerencias'}
-          </div>
-          <iframe src="${formURL}" allowfullscreen></iframe>
-        `;
-      }
+<script>
+  // Submenús tipo acordeón
+  document.querySelectorAll('[data-toggle]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const submenuId = btn.getAttribute('data-toggle');
+      const submenu = document.getElementById(submenuId);
+      document.querySelectorAll('.submenu').forEach(menu => {
+        if (menu !== submenu) menu.classList.remove('open');
+      });
+      submenu.classList.toggle('open');
+    });
+  });
+
+  // Botón Documentación
+  document.getElementById('btn-documentacion').addEventListener('click', () => {
+    const main = document.getElementById('mainContent');
+    main.innerHTML = `
+      <div style="padding:20px;text-align:center;">
+        <h2 style="color:#e066ff;">📘 Documentación</h2>
+        <div style="display:flex;justify-content:center;gap:10px;margin-top:15px;">
+          <button class='sub-doc-btn' onclick="loadResolucion('1.2')">Resolución 1.2</button>
+          <button class='sub-doc-btn' onclick="loadResolucion('1.3')">Resolución 1.3</button>
+          <button class='sub-doc-btn' onclick="loadResolucion('1.4')">Resolución 1.4</button>
+        </div>
+      </div>
+    `;
+  });
+
+  // Formulario Resolución
+  function loadResolucion(num) {
+    const main = document.getElementById('mainContent');
+    main.innerHTML = `
+      <div class="form-container">
+        <h2 style="text-align:center;color:#e066ff;">${num} Resolución</h2>
+        
+        <label>Asunto:</label>
+        <select id="asunto">
+          <option>Solicitud resuelta</option>
+          <option>Cancelada</option>
+          <option>Rechazada</option>
+        </select>
+
+        <label>Hola,</label>
+        <input type="text" id="nombre" placeholder="Nombre del solicitante">
+        <label>nos complace indicarte que hemos completado tu solicitud.</label>
+
+        <label>Número de ticket:</label>
+        <input type="text" id="ticket" placeholder="Número del ticket">
+
+        <label>Estado:</label>
+        <select id="estado">
+          <option value="informativo">Informativo</option>
+          <option value="solucionado">Solucionado</option>
+          <option value="fuera">Fuera de alcance</option>
+          <option value="denegado">Denegado</option>
+        </select>
+
+        <label>Descripción de la solicitud:</label>
+        <input type="text" id="descripcion" placeholder="Descripción de la solicitud">
+
+        <label>Diagnóstico:</label>
+        <textarea id="diagnostico" rows="3" placeholder="Diagnóstico..."></textarea>
+
+        <label>Acciones realizadas:</label>
+        <textarea id="acciones" rows="4" placeholder="Acciones realizadas..."></textarea>
+
+        <label>Firma:</label>
+        <input type="text" id="firma" value="Service Desk">
+
+        <div style="text-align:center;margin-top:10px;">
+          <button class="btn-clear" onclick="limpiarFormulario()">Limpiar formulario</button>
+          <button class="btn-copy" onclick="copiarFormulario()">Copiar contenido</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // Limpiar formulario
+  function limpiarFormulario() {
+    document.querySelectorAll('.form-container input, .form-container textarea, .form-container select')
+      .forEach(el => el.value = '');
+  }
+
+  // Copiar contenido del formulario
+  function copiarFormulario() {
+    const inputs = document.querySelectorAll('.form-container input, .form-container textarea, .form-container select');
+    let texto = '';
+    inputs.forEach(el => {
+      const label = el.previousElementSibling ? el.previousElementSibling.innerText : '';
+      texto += `${label} ${el.value}\n`;
+    });
+    navigator.clipboard.writeText(texto).then(() => {
+      alert('Contenido copiado al portapapeles ✅');
+    });
+  }
+
+  // Formularios externos
+  function loadForm(type) {
+    const main = document.getElementById('mainContent');
+    let formURL = '';
+    switch (type) {
+      case 'citas':
+        formURL = 'https://apps.powerapps.com/play/...';
+        break;
+      case 'soporte':
+        formURL = 'https://forms.office.com/pages/responsepage.aspx?id=TU_FORMULARIO_SOPORTE';
+        break;
+      case 'buzon':
+        formURL = 'https://forms.office.com/pages/responsepage.aspx?id=TU_FORMULARIO_BUZON';
+        break;
     }
-  </script>
+
+    if (formURL) {
+      main.innerHTML = `
+        <div style="text-align:center; padding:15px; background:#330033; color:#e066ff; font-weight:600;">
+          ${type === 'citas' ? '🧪 Citas a laboratorio' : type === 'soporte' ? '💻 Soporte en sitio' : '📬 Buzón de sugerencias'}
+        </div>
+        <iframe src="${formURL}" allowfullscreen></iframe>
+      `;
+    }
+  }
+</script>
 </body>
 </html>
