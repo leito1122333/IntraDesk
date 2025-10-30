@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="/title-service.png">
 <title>IntraDesk</title>
 <style>
   body {
@@ -251,6 +252,24 @@
 .tab-btn.active {
   transition: all 0.3s ease, background 0.5s ease;
 }
+.logo-container {
+  display: inline-block;
+  position: relative;
+}
+
+.logo-neon {
+  width: 150px; /* ajusta según el tamaño que necesites */
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 0 5px #00aaff);
+}
+
+.logo-neon:hover {
+  filter: drop-shadow(0 0 10px #00aaff)
+          drop-shadow(0 0 20px #00aaff)
+          drop-shadow(0 0 40px #00aaff)
+          brightness(1.3);
+  transform: scale(1.05);
+}
 
 </style>
 </head>
@@ -261,7 +280,10 @@
 
 <body>
   <div class="sidebar">
-    <div class="logo">NEXA</div>
+   <div class="logo-container">
+  <img src="/logo service.png" alt="Logo Intraservice" class="logo-neon">
+</div>
+
 
     <button class="menu-btn" data-toggle="submenu-aplicativos">Aplicativos</button>
     <div class="submenu" id="submenu-aplicativos">
@@ -302,7 +324,7 @@
 
   <div class="content" id="mainContent">
     <div class="placeholder">
-      <h1>Bienvenido a la Intraservice</h1>
+      <h1>Bienvenido a la IntraDesk</h1>
       <p>Selecciona una opción en el menú lateral.</p>
     </div>
   </div>
