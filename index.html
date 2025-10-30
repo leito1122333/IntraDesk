@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Menú Lateral Nexa</title>
+<title>IntraDesk</title>
 <style>
   body {
     margin: 0;
@@ -191,11 +191,72 @@
 
   .btn-clear { background-color: #ff0066; color: #fff; }
   .btn-copy { background-color: #00e6e6; color: #000; }
+  /* --- BOTONES DE DOCUMENTACIÓN (ESTILO FUTURISTA) --- */
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.tab-btn {
+  background: linear-gradient(135deg, #8a00ff, #3c00ff);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 14px;
+  cursor: pointer;
+  letter-spacing: 0.6px;
+  box-shadow: 0 0 10px rgba(138, 0, 255, 0.3);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+/* Efecto de resplandor interno */
+.tab-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15), transparent 60%);
+  transform: scale(0);
+  transition: transform 0.4s ease;
+}
+
+/* Hover brillante */
+.tab-btn:hover {
+  box-shadow: 0 0 25px rgba(163, 0, 255, 0.7), 0 0 10px rgba(60, 0, 255, 0.5);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.tab-btn:hover::before {
+  transform: scale(1);
+}
+
+/* Estado activo con borde neón y fondo más claro */
+.tab-btn.active {
+  background: linear-gradient(135deg, #c000ff, #6000ff);
+  box-shadow: 0 0 30px rgba(192, 0, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Suave animación al cambiar */
+.tab-btn,
+.tab-btn.active {
+  transition: all 0.3s ease, background 0.5s ease;
+}
+
 </style>
 </head>
 
 <header>
-  <button class="btn-registrar-turno" onclick="window.open()">Registrar turno</button>
+ 
 </header>
 
 <body>
@@ -210,8 +271,8 @@
       <a href="http://10.32.2.11:443/UsersManagement/session?usuario=1016076221" target="_blank">Uno a uno</a>
       <a href="http://10.32.4.160/dude/main.html" target="_blank">MikroTik DUDE</a>
       <a href="https://nexabpo.educativo.co/login/index.php" target="_blank">Unix</a>
-      <a href="https://vpn4.nexabpo.com" target="_blank">VPN4</a>
-      <a href="https://vpn3.nexabpo.com" target="_blank">VPN3</a>
+      <a href="https://vpn4.nexabpo.com/dana-na/auth/url_admin/welcome.cgi" target="_blank">VPN4</a>
+      <a href="https://10.32.160.2/dana-na/auth/url_admin/welcome.cgi" target="_blank">VPN3</a>
     </div>
 
     <button class="menu-btn" data-toggle="submenu-aplicativos-claro">Aplicativos Claro</button>
@@ -232,7 +293,10 @@
 </button>
 
     <button class="menu-btn" onclick="loadForm('citas')">Citas a laboratorio</button>
-    <button class="menu-btn" onclick="loadForm('soporte')">Soporte en sitio</button>
+    <button class="menu-btn" onclick="loadForm('soporte')">Registrar Turno</button>
+   <button class="menu-btn" onclick="window.open('https://graval.sharepoint.com/sites/ServiceDeskTINEXABPO/_layouts/15/listforms.aspx?cid=NzBiMTYxNDUtNjgwMi00OTJhLTkwNGUtMDJkM2Q1ZDU3NjE3&nav=ZjQwMGYzMDItM2I4NS00NGEyLTlkMTMtNWM4NzY0ZDg0NzZi&xsdata=MDV8MDJ8fDY5NTYwMGI1MmRjNTRjMTM2NjM3MDhkZDcyYmFiZjkzfDEwYTc2NzEyOTRmNjQ2YTI5MTU1MzFiZDhiNzZmOTM3fDB8MHw2Mzg3OTI4Njg1NjAwNzAxOTl8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxMMk5vWVhSekx6RTVPbTFsWlhScGJtZGZUakpKTVZwdFJtMU9la1YwV1ZSRk5FOURNREJPUjBWNFRGUm9hVnBVV1hST2VsSnBUbnBvYVZwcVdUSk5ha2w1UUhSb2NtVmhaQzUyTWk5dFpYTnpZV2RsY3k4eE56UXpOamt3TURVME9UVTR8MTE4YTkxNGY0YTM5NGU3ZDY2MzcwOGRkNzJiYWJmOTN8NWNlYjU3MmM4MzRlNDA0ZWJmNDAxZjg4MjY4MWExMjk%3D&sdata=MHJ6c3FFaG9xYUpQclR4R0FiSlpMdVZEcXg0dlArWCtNd2MyVGRBTWM1UT0%3D&ovuser=10a76712-94f6-46a2-9155-31bd8b76f937%2Csemilleroti%40ventasyservicios.com.co','_blank')">
+  Soporte en sitio
+</button>
     <button class="menu-btn" onclick="loadForm('buzon')">Buzón de sugerencias</button>
   </div>
 
@@ -256,88 +320,283 @@
     });
   });
 
-  // Botón Documentación
-  document.getElementById('btn-documentacion').addEventListener('click', () => {
-    const main = document.getElementById('mainContent');
-    main.innerHTML = `
-      <div style="padding:20px;text-align:center;">
-        <h2 style="color:#e066ff;">📘 Documentación</h2>
-        <div style="display:flex;justify-content:center;gap:10px;margin-top:15px;">
-          <button class='sub-doc-btn' onclick="loadResolucion('1.2')">Resolución 1.2</button>
-          <button class='sub-doc-btn' onclick="loadResolucion('1.3')">Resolución 1.3</button>
-          <button class='sub-doc-btn' onclick="loadResolucion('1.4')">Resolución 1.4</button>
-        </div>
+  // Botón Documentación (bloque reemplazado — pestañas modernas)
+document.getElementById('btn-documentacion').addEventListener('click', () => {
+  const main = document.getElementById('mainContent');
+  main.innerHTML = `
+    <div style="padding:20px;text-align:center;">
+      <h2 style="color:#e066ff;">📘 Documentación</h2>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="1.1">Resolución 1.1</button>
+        <button class="tab-btn" data-tab="1.2">Duplicado 1.2</button>
+        <button class="tab-btn" data-tab="1.3">No contacto 1.3</button>
+        <button class="tab-btn" data-tab="1.4">Brindar información 1.4</button>
+        <button class="tab-btn" data-tab="1.5">Soporte en sitio 1.5</button>
       </div>
-    `;
-  });
+      <div id="tab-container"></div>
+    </div>
+  `;
 
-  // Formulario Resolución
-  function loadResolucion(num) {
-    const main = document.getElementById('mainContent');
-    main.innerHTML = `
+  // Cargar la pestaña por defecto
+  loadFormDoc('1.1');
+  activarPestañas();
+});
+
+function activarPestañas() {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      loadFormDoc(btn.getAttribute('data-tab'));
+    });
+  });
+}
+
+function loadFormDoc(tipo) {
+  const container = document.getElementById('tab-container');
+
+  if (!container) return;
+
+  if (tipo === '1.1') {
+    container.innerHTML = `
       <div class="form-container">
-        <h2 style="text-align:center;color:#e066ff;">${num} Resolución</h2>
-        
+        <h3 style="color:#e066ff;text-align:center;">Resolución 1.1</h3>
+
         <label>Asunto:</label>
         <select id="asunto">
+          <option>Seleccione una opcion...</option>
           <option>Solicitud resuelta</option>
-          <option>Cancelada</option>
-          <option>Rechazada</option>
+          <option>Solicitud rechazada</option>
+          <option>Fuera de alcance</option>
+          <option>Informativo</option>
         </select>
 
         <label>Hola,</label>
-        <input type="text" id="nombre" placeholder="Nombre del solicitante">
-        <label>nos complace indicarte que hemos completado tu solicitud.</label>
+        <input type="text" id="nombreSolicitante" placeholder="Nombre del solicitante">
 
-        <label>Número de ticket:</label>
-        <input type="text" id="ticket" placeholder="Número del ticket">
+        <label>Nos complace informarle que hemos culminado su solicitud con los siguientes datos.<br></label>
+        <br>
 
         <label>Estado:</label>
-        <select id="estado">
-          <option value="informativo">Informativo</option>
-          <option value="solucionado">Solucionado</option>
-          <option value="fuera">Fuera de alcance</option>
-          <option value="denegado">Denegado</option>
-        </select>
+        <input type="text" id="estadoAuto" placeholder="Estado automático" readonly>
 
         <label>Descripción de la solicitud:</label>
-        <input type="text" id="descripcion" placeholder="Descripción de la solicitud">
+        <input type="text" id="descripcionSolic" placeholder="Descripción de la solicitud">
 
         <label>Diagnóstico:</label>
-        <textarea id="diagnostico" rows="3" placeholder="Diagnóstico..."></textarea>
+        <input type="text" id="diagnostico" placeholder="Diagnóstico...">
 
         <label>Acciones realizadas:</label>
-        <textarea id="acciones" rows="4" placeholder="Acciones realizadas..."></textarea>
+        <input type="text" id="accionesRealizadas" placeholder="Acciones realizadas...">
+        <br>
+        <label><br>Evidencias:</label>
 
-        <label>Firma:</label>
-        <input type="text" id="firma" value="Service Desk">
+        <label><br>Firma:</label>
+        <select id="firmaResolucion">
+         <option>Seleccione una opción...</option> 
+         <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
+          <option>Ingrid Tejero</option><option>Andres Avila</option><option>Sergio Gil</option>
+          <option>Jhon Rivas</option><option>Stiven Avila</option><option>Mairon Ortiz</option>
+          <option>Leonardo Mendoza</option><option>Sebastian Ramirez</option><option>David Botero</option>
+          <option>Leonardo Gonzalez</option><option>Valeria Pardo</option><option>David Legro</option>
+          <option>Paula Mariño</option>
+        </select>
+
+        <label><b>Service Desk</b></label>
 
         <div style="text-align:center;margin-top:10px;">
-          <button class="btn-clear" onclick="limpiarFormulario()">Limpiar formulario</button>
-          <button class="btn-copy" onclick="copiarFormulario()">Copiar contenido</button>
+          <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
+          <button class="btn-copy" onclick="copiarFormularioDoc()">Copiar al portapapeles</button>
+        </div>
+      </div>
+    `;
+
+    // enlazar comportamiento del select -> estado automático
+    const asunto = document.getElementById('asunto');
+    const estadoAuto = document.getElementById('estadoAuto');
+    if (asunto && estadoAuto) {
+      asunto.addEventListener('change', () => {
+        const v = asunto.value;
+        if (v === 'Solicitud resuelta') estadoAuto.value = 'Solucionado con éxito';
+        else if (v === 'Solicitud rechazada' || v === 'Fuera de alcance') estadoAuto.value = 'Denegado';
+        else if (v === 'Informativo') estadoAuto.value = 'Cancelado';
+      });
+      // disparar al cargar
+      asunto.dispatchEvent(new Event('change'));
+    }
+
+  } else if (tipo === '1.2') {
+    container.innerHTML = `
+      <div class="form-container">
+        <h3 style="color:#e066ff;text-align:center;">Duplicado 1.2</h3>
+
+        <label>Hola,</label>
+        <input type="text" id="personaDuplicado" placeholder="Nombre de la persona afectada">
+        <label>Te informamos que el ticket</label>
+
+        <label>Número ticket (actual):</label>
+        <input type="text" id="ticketDuplicado" placeholder="Número del ticket">
+        <label> ha sido cerrado, ya que corresponde a un duplicado del ticket(ticket anterior):</label> 
+        <input type="text" id="ticketAnterior" placeholder="Ticket anterior">
+        <label>  La solicitud será gestionada a través del ticket anterior.</label>
+
+       <Br><Br>
+        <label>Firma:</label>
+        <select id="firmaDuplicado">
+          <option>Seleccione una opción...</option>
+          <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
+          <option>Ingrid Tejero</option><option>Andres Avila</option><option>Sergio Gil</option>
+          <option>Jhon Rivas</option><option>Stiven Avila</option><option>Mairon Ortiz</option>
+          <option>Leonardo Mendoza</option><option>Sebastian Ramirez</option><option>David Botero</option>
+          <option>Leonardo Gonzalez</option><option>Valeria Pardo</option><option>David Legro</option>
+          <option>Paula Mariño</option>
+        </select>
+
+        <label><b>Service Desk</b></label>
+
+        <div style="text-align:center;margin-top:10px;">
+          <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
+          <button class="btn-copy" onclick="copiarFormularioDoc()">Copiar al portapapeles</button>
+        </div>
+      </div>
+    `;
+  } else if (tipo === '1.3') {
+    container.innerHTML = `
+      <div class="form-container">
+        <h3 style="color:#e066ff;text-align:center;">No contacto 1.3</h3>
+
+        <label>¡Hola!</label>
+        <br><br><br>
+
+    
+        <label><br>Me pongo en contacto contigo en relación a la incidencia:</label>
+        <input type="text" id="numCaso" placeholder="Número del caso">
+
+        <label>que reportaste el día</label>
+        <input type="date" id="fechaCaso">
+
+        <label>en nuestra herramienta SMAX. Lamentablemente, a pesar de nuestros intentos, no hemos logrado establecer comunicación a través de los canales de atención que nos proporcionaste.
+<Br><br>Dado que la comunicación es fundamental para garantizar una resolución efectiva y oportuna de las incidencias, y ante la falta de respuesta después de varios intentos, hemos tomado la decisión de cerrar este ticket.
+
+<br><br>Muchas gracias, si tienes algún tipo de consulta puedes contactarte por nuestros canales de comunicación. 
+<br><br>SMAX y WhatsApp 3112909194</label>
+           <br><br><br>
+        <label><Br>Firma:</label>
+        <select id="firmaNoContacto">
+          <option>Seleccione una opción...</option>
+          <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
+          <option>Ingrid Tejero</option><option>Andres Avila</option><option>Sergio Gil</option>
+          <option>Jhon Rivas</option><option>Stiven Avila</option><option>Mairon Ortiz</option>
+          <option>Leonardo Mendoza</option><option>Sebastian Ramirez</option><option>David Botero</option>
+          <option>Leonardo Gonzalez</option><option>Valeria Pardo</option><option>David Legro</option>
+          <option>Paula Mariño</option>
+        </select>
+
+        <label><b>Service Desk</b></label>
+
+        <div style="text-align:center;margin-top:10px;">
+          <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
+          <button class="btn-copy" onclick="copiarFormularioDoc()">Copiar al portapapeles</button>
+        </div>
+      </div>
+    `;
+  } else if (tipo === '1.4') {
+    container.innerHTML = `
+      <div class="form-container">
+        <h3 style="color:#e066ff;text-align:center;">Brindar información 1.4</h3>
+
+        <label>Hola,</label>
+        <input type="text" id="nombreInfo" placeholder="Nombre del creador del caso">
+
+        <label>Queremos informarte que estamos trabajando activamente en la resolución de tu solicitud.<br></label>
+         <br><br>
+         
+        <label><Br>Estado actual:</label>
+        <input type="text" id="estadoInfo" placeholder="Estado del caso">
+        <br><br>
+
+        <label><br>Si tienes alguna pregunta o inquietud, no dudes en comunicarte con nosotros.</label>
+         <br><br>
+        <label><br>Firma:</label>
+        <select id="firmaInfo">
+          <option>Seleccione una opción...</option>
+          <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
+          <option>Ingrid Tejero</option><option>Andres Avila</option><option>Sergio Gil</option>
+          <option>Jhon Rivas</option><option>Stiven Avila</option><option>Mairon Ortiz</option>
+          <option>Leonardo Mendoza</option><option>Sebastian Ramirez</option><option>David Botero</option>
+          <option>Leonardo Gonzalez</option><option>Valeria Pardo</option><option>David Legro</option>
+          <option>Paula Mariño</option>
+        </select>
+
+        <label><b>Service Desk</b></label>
+
+        <div style="text-align:center;margin-top:10px;">
+          <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
+          <button class="btn-copy" onclick="copiarFormularioDoc()">Copiar al portapapeles</button>
+        </div>
+      </div>
+    `;
+  } else if (tipo === '1.5') {
+    container.innerHTML = `
+      <div class="form-container">
+        <h3 style="color:#e066ff;text-align:center;">Soporte en sitio 1.5</h3>
+
+        <label>Hola,</label>
+        <input type="text" id="personaSoporte" placeholder="Persona que generó el soporte">
+           <label><br> me complace informarte que tu solicitud de soporte ha sido realizada </label>
+        <label><br>Descripción del soporte:</label>
+        <input type="text" id="descSoporte" placeholder="Descripción del soporte">
+
+        <label>Acciones realizadas:</label>
+        <input type="text" id="accionesSoporte" placeholder="Acciones realizadas">
+
+        <label><br>Firma:</label>
+        <select id="firmaSoporte">
+         <option>Seleccione una opción...</option> 
+         <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
+          <option>Ingrid Tejero</option><option>Andres Avila</option><option>Sergio Gil</option>
+          <option>Jhon Rivas</option><option>Stiven Avila</option><option>Mairon Ortiz</option>
+          <option>Leonardo Mendoza</option><option>Sebastian Ramirez</option><option>David Botero</option>
+          <option>Leonardo Gonzalez</option><option>Valeria Pardo</option><option>David Legro</option>
+          <option>Paula Mariño</option>
+        </select>
+
+        <label><b>Service Desk</b></label>
+
+        <div style="text-align:center;margin-top:10px;">
+          <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
+          <button class="btn-copy" onclick="copiarFormularioDoc()">Copiar al portapapeles</button>
         </div>
       </div>
     `;
   }
+}
 
-  // Limpiar formulario
-  function limpiarFormulario() {
-    document.querySelectorAll('.form-container input, .form-container textarea, .form-container select')
-      .forEach(el => el.value = '');
-  }
+// Limpiar formulario (genérico para la sección documentación)
+function limpiarFormularioDoc() {
+  const panel = document.querySelector('#tab-container .form-container');
+  if (!panel) return;
+  panel.querySelectorAll('input').forEach(i => i.value = '');
+  panel.querySelectorAll('textarea').forEach(t => t.value = '');
+  panel.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+}
 
-  // Copiar contenido del formulario
-  function copiarFormulario() {
-    const inputs = document.querySelectorAll('.form-container input, .form-container textarea, .form-container select');
-    let texto = '';
-    inputs.forEach(el => {
-      const label = el.previousElementSibling ? el.previousElementSibling.innerText : '';
-      texto += `${label} ${el.value}\n`;
-    });
-    navigator.clipboard.writeText(texto).then(() => {
-      alert('Contenido copiado al portapapeles ✅');
-    });
-  }
+// Copiar formulario (genérico para la sección documentación)
+function copiarFormularioDoc() {
+  const panel = document.querySelector('#tab-container .form-container');
+  if (!panel) return;
+  let texto = '';
+  panel.querySelectorAll('label, input, textarea, select').forEach(el => {
+    if (el.tagName.toLowerCase() === 'label') {
+      // etiqueta; la usamos como índice si viene antes del input
+      texto += `${el.innerText} `;
+    } else {
+      // campo con valor
+      if (el.value !== undefined) texto += `${el.value}\n`;
+    }
+  });
+  navigator.clipboard.writeText(texto.trim()).then(() => alert('Contenido copiado al portapapeles ✅'));
+}
 
   // Formularios externos
   function loadForm(type) {
@@ -345,10 +604,10 @@
     let formURL = '';
     switch (type) {
       case 'citas':
-        formURL = 'https://apps.powerapps.com/play/...';
+        formURL = 'https://apps.powerapps.com/play/e/default-10a76712-94f6-46a2-9155-31bd8b76f937/a/2cdf352c-a757-4878-993e-a7fc01327f0e?tenantId=10a76712-94f6-46a2-9155-31bd8b76f937&hint=b1ff724c-7990-435d-b8c8-9da4824251c3&sourcetime=1753381314174';
         break;
       case 'soporte':
-        formURL = 'https://forms.office.com/pages/responsepage.aspx?id=TU_FORMULARIO_SOPORTE';
+        formURL = 'https://forms.office.com/pages/responsepage.aspx?id=EmenEPaUokaRVTG9i3b5N3i-zTGtckJAh6E7aMR8tWFUOTJaS09NWUE4QzJHQVdQMFg3UVNHOUxPSS4u&route=shorturl';
         break;
       case 'buzon':
         formURL = 'https://forms.office.com/pages/responsepage.aspx?id=TU_FORMULARIO_BUZON';
@@ -358,7 +617,7 @@
     if (formURL) {
       main.innerHTML = `
         <div style="text-align:center; padding:15px; background:#330033; color:#e066ff; font-weight:600;">
-          ${type === 'citas' ? '🧪 Citas a laboratorio' : type === 'soporte' ? '💻 Soporte en sitio' : '📬 Buzón de sugerencias'}
+          ${type === 'citas' ? '🧪 Citas a laboratorio' : type === 'soporte' ? '📅Registrar turno' : '📬 Buzón de sugerencias'}
         </div>
         <iframe src="${formURL}" allowfullscreen></iframe>
       `;
