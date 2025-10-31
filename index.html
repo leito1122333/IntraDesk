@@ -281,8 +281,10 @@
 <body>
   <div class="sidebar">
    <div class="logo-container">
+    <a href="index.html">
   <img src="logoService.png" alt="Logo Intraservice" class="logo-neon">
 </div>
+</a>
 
 
     <button class="menu-btn" data-toggle="submenu-aplicativos">Aplicativos</button>
@@ -353,7 +355,7 @@ document.getElementById('btn-documentacion').addEventListener('click', () => {
         <button class="tab-btn" data-tab="1.2">Duplicado 1.2</button>
         <button class="tab-btn" data-tab="1.3">No contacto 1.3</button>
         <button class="tab-btn" data-tab="1.4">Brindar información 1.4</button>
-        <button class="tab-btn" data-tab="1.5">Soporte en sitio 1.5</button>
+        <button class="tab-btn" data-tab="1.5">Solicitud de espera 1.5</button>
       </div>
       <div id="tab-container"></div>
     </div>
@@ -397,7 +399,11 @@ function loadFormDoc(tipo) {
         <input type="text" id="nombreSolicitante" placeholder="Nombre del solicitante">
 
         <label>Nos complace informarle que hemos culminado su solicitud con los siguientes datos.<br></label>
-        <br>
+        
+
+        
+        <label>Numero del ticket</label>
+        <input type="text" id="numCaso" placeholder="Número del caso">
 
         <label>Estado:</label>
         <input type="text" id="estadoAuto" placeholder="Estado automático" readonly>
@@ -413,7 +419,7 @@ function loadFormDoc(tipo) {
         <br>
         <label><br>Evidencias:</label>
 
-        <label><br>Firma:</label>
+       <label><br></label>
         <select id="firmaResolucion">
          <option>Seleccione una opción...</option> 
          <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
@@ -424,7 +430,7 @@ function loadFormDoc(tipo) {
           <option>Paula Mariño</option>
         </select>
 
-        <label><b>Service Desk</b></label>
+        <label><b>Service Desk.</b></label>
 
         <div style="text-align:center;margin-top:10px;">
           <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
@@ -463,7 +469,7 @@ function loadFormDoc(tipo) {
         <label>  La solicitud será gestionada a través del ticket anterior.</label>
 
        <Br><Br>
-        <label>Firma:</label>
+        <label><br></label>
         <select id="firmaDuplicado">
           <option>Seleccione una opción...</option>
           <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
@@ -474,7 +480,7 @@ function loadFormDoc(tipo) {
           <option>Paula Mariño</option>
         </select>
 
-        <label><b>Service Desk</b></label>
+        <label><b>Service Desk.</b></label>
 
         <div style="text-align:center;margin-top:10px;">
           <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
@@ -487,23 +493,27 @@ function loadFormDoc(tipo) {
       <div class="form-container">
         <h3 style="color:#e066ff;text-align:center;">No contacto 1.3</h3>
 
-        <label>¡Hola!</label>
-        <br><br><br>
+        
+<label>Me pongo en contacto contigo en relación a la incidencia:</label>
+  <input type="text" id="numCaso" placeholder="Número del caso"><br><br>
 
-    
-        <label><br>Me pongo en contacto contigo en relación a la incidencia:</label>
-        <input type="text" id="numCaso" placeholder="Número del caso">
+  <label>que reportaste el día</label>
+  <input type="date" id="fechaCaso"><br><br>
 
-        <label>que reportaste el día</label>
-        <input type="date" id="fechaCaso">
+  <label>
+    en nuestra herramienta SMAX. Lamentablemente, a pesar de nuestros intentos, no hemos logrado establecer comunicación a través de los canales de atención que nos proporcionaste.
+    <br><br>
+    Dado que la comunicación es fundamental para garantizar una resolución efectiva y oportuna de las incidencias, y ante la falta de respuesta después de varios intentos, hemos tomado la decisión de cerrar este ticket.
+    <br><br>
+    Muchas gracias, si tienes algún tipo de consulta puedes contactarte por nuestros canales de comunicación, SMAX y WhatsApp 3112909194
+    <br><br>
+    Gracias por su atención y colaboración!<br>
+    ¡Juntos construimos la mejor Experiencia!<br><br>
+    ¡Saludos!
+  </label><br><br>
 
-        <label>en nuestra herramienta SMAX. Lamentablemente, a pesar de nuestros intentos, no hemos logrado establecer comunicación a través de los canales de atención que nos proporcionaste.
-<Br><br>Dado que la comunicación es fundamental para garantizar una resolución efectiva y oportuna de las incidencias, y ante la falta de respuesta después de varios intentos, hemos tomado la decisión de cerrar este ticket.
-
-<br><br>Muchas gracias, si tienes algún tipo de consulta puedes contactarte por nuestros canales de comunicación. 
-<br><br>SMAX y WhatsApp 3112909194</label>
            <br><br><br>
-        <label><Br>Firma:</label>
+       <label><br></label> 
         <select id="firmaNoContacto">
           <option>Seleccione una opción...</option>
           <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
@@ -514,7 +524,7 @@ function loadFormDoc(tipo) {
           <option>Paula Mariño</option>
         </select>
 
-        <label><b>Service Desk</b></label>
+        <label><b>Service Desk.</b></label>
 
         <div style="text-align:center;margin-top:10px;">
           <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
@@ -539,7 +549,7 @@ function loadFormDoc(tipo) {
 
         <label><br>Si tienes alguna pregunta o inquietud, no dudes en comunicarte con nosotros.</label>
          <br><br>
-        <label><br>Firma:</label>
+        <label><br></label>
         <select id="firmaInfo">
           <option>Seleccione una opción...</option>
           <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
@@ -550,7 +560,7 @@ function loadFormDoc(tipo) {
           <option>Paula Mariño</option>
         </select>
 
-        <label><b>Service Desk</b></label>
+        <label><b>Service Desk.</b></label>
 
         <div style="text-align:center;margin-top:10px;">
           <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
@@ -561,18 +571,14 @@ function loadFormDoc(tipo) {
   } else if (tipo === '1.5') {
     container.innerHTML = `
       <div class="form-container">
-        <h3 style="color:#e066ff;text-align:center;">Soporte en sitio 1.5</h3>
+        <h3 style="color:#e066ff;text-align:center;">Solicitud en espera 1.5</h3>
 
-        <label>Hola,</label>
-        <input type="text" id="personaSoporte" placeholder="Persona que generó el soporte">
-           <label><br> me complace informarte que tu solicitud de soporte ha sido realizada </label>
-        <label><br>Descripción del soporte:</label>
-        <input type="text" id="descSoporte" placeholder="Descripción del soporte">
+        <label>¡Hola!<br></label>
+        <label><br> Se solicita espera debido a </label>
 
-        <label>Acciones realizadas:</label>
-        <input type="text" id="accionesSoporte" placeholder="Acciones realizadas">
-
-        <label><br>Firma:</label>
+        <input type="text" id="personaSoporte" placeholder="Descripcion de la espera">
+         
+        <label><br></label>
         <select id="firmaSoporte">
          <option>Seleccione una opción...</option> 
          <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
@@ -583,7 +589,7 @@ function loadFormDoc(tipo) {
           <option>Paula Mariño</option>
         </select>
 
-        <label><b>Service Desk</b></label>
+        <label><b>Service Desk.</b></label>
 
         <div style="text-align:center;margin-top:10px;">
           <button class="btn-clear" onclick="limpiarFormularioDoc()">Limpiar formulario</button>
