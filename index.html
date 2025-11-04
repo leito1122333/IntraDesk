@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/png" href="titleService.png">
 <title>IntraDesk</title>
+
+<!-- Políticas de seguridad (ajustar en servidor idealmente) -->
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; frame-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; connect-src 'self' https:">
+
 <style>
   body {
     margin: 0;
@@ -289,36 +295,37 @@
 
     <button class="menu-btn" data-toggle="submenu-aplicativos">Aplicativos</button>
     <div class="submenu" id="submenu-aplicativos">
-      <a href="https://autoserviciopwd.nexabpo.com:9251/authorization.do" target="_blank">ADSelf</a>
-      <a href="https://cariai.com/agentui/" target="_blank">Cari AI</a>
-      <a href="http://10.250.100.157/wcm/LoginEJS.aspx" target="_blank">Genesys Administrator</a>
-      <a href="http://10.32.2.11:443/UsersManagement/session?usuario=1016076221" target="_blank">Uno a uno</a>
-      <a href="http://10.32.4.160/dude/main.html" target="_blank">MikroTik DUDE</a>
-      <a href="https://nexabpo.educativo.co/login/index.php" target="_blank">Unix</a>
-      <a href="https://vpn4.nexabpo.com/dana-na/auth/url_admin/welcome.cgi" target="_blank">VPN4</a>
-      <a href="https://10.32.160.2/dana-na/auth/url_admin/welcome.cgi" target="_blank">VPN3</a>
+      <a href="https://autoserviciopwd.nexabpo.com:9251/authorization.do" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">ADSelf</a>
+      <a href="https://cariai.com/agentui/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Cari AI</a>
+      <a href="http://10.250.100.157/wcm/LoginEJS.aspx" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Genesys Administrator</a>
+      <a href="http://10.32.2.11:443/UsersManagement/session?usuario=1016076221" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Uno a uno</a>
+      <a href="http://10.32.4.160/dude/main.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">MikroTik DUDE</a>
+      <a href="https://nexabpo.educativo.co/login/index.php" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Unix</a>
+      <a href="https://vpn4.nexabpo.com/dana-na/auth/url_admin/welcome.cgi" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">VPN4</a>
+      <a href="https://10.32.160.2/dana-na/auth/url_admin/welcome.cgi" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">VPN3</a>
     </div>
 
     <button class="menu-btn" data-toggle="submenu-aplicativos-claro">Aplicativos Claro</button>
     <div class="submenu" id="submenu-aplicativos-claro">
-      <a href="https://claro1.com" target="_blank">VPN Claro</a>
-      <a href="https://claro2.com" target="_blank">Correo Zimbra</a>
-      <a href="https://claro3.com" target="_blank">Smax TI</a>
+      <a href="https://claro1.com" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">VPN Claro</a>
+      <a href="https://claro2.com" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Correo Zimbra</a>
+      <a href="https://claro3.com" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Smax TI</a>
     </div>
 
     
+    
     <button class="menu-btn" id="btn-documentacion">Documentación</button>
-    <button class="menu-btn" onclick="window.open('https://graval-my.sharepoint.com/:x:/r/personal/sfgomeze_ventasyservicios_com_co/_layouts/15/Doc.aspx?sourcedoc=%7B9483C799-D32A-4EA0-967D-CBC3BCAE8930%7D&amp;file=Malla%20Service%20Desk.xlsx&amp;action=default&amp;mobileredirect=true&amp;DefaultItemOpen=1&amp;web=1','_blank')">
+    <button class="menu-btn" onclick="openSafe('https://graval-my.sharepoint.com/:x:/r/personal/sfgomeze_ventasyservicios_com_co/_layouts/15/Doc.aspx?sourcedoc=%7B9483C799-D32A-4EA0-967D-CBC3BCAE8930%7D&amp;file=Malla%20Service%20Desk.xlsx&amp;action=default&amp;mobileredirect=true&amp;DefaultItemOpen=1&amp;web=1')">
   Malla de turno
 </button>
 
-<button class="menu-btn" onclick="window.open('https://graval-my.sharepoint.com/:x:/r/personal/reescobar_ventasyservicios_com_co/_layouts/15/Doc2.aspx?action=edit&amp;sourcedoc=%7B6c886857-7691-40c0-9bd9-6fa161fd59bb%7D&amp;wdOrigin=TEAMS-MAGLEV.undefined_ns.rwc&amp;wdExp=TEAMS-TREATMENT&amp;wdhostclicktime=1758725680137&amp;web=1&amp;xsdata=MDV8MDJ8fDI0OTVlNzljYzJjMzRkZTExNjNmMDhkZGZiN2E1MTlmfDEwYTc2NzEyOTRmNjQ2YTI5MTU1MzFiZDhiNzZmOTM3fDB8MHw2Mzg5NDMyMjQ5MzA0NDA3Njd8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pSbU1ESXpNakl3TFRrek9XWXRORGd3WkMxaE5UaGlMV0pqWW1Rd05XTXlPVEk0TVY5aVlqYzRZMkUzWlMxa1pEQXhMVFJsT1RjdFlXRXpNQzB3WVRrMk9UQmpORE16T1dWQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMU9EY3lOVFk1TWpjd05RPT18YzBjZDYwMGM3MGFmNGU5YjE2M2YwOGRkZmI3YTUxOWZ8ZmQ4ODA4ZjFhZDA5NDlmM2EyMWQwZGFjMmFlNGM1MTQ%3D&amp;sdata=MzlRaXVKbnM3ME1DRitLVlRiN1pSanJjVnpnN05RRW5EM1h4V0lHcWVUUT0%3D&amp;ovuser=10a76712-94f6-46a2-9155-31bd8b76f937%2Csemilleroti%40ventasyservicios.com.co')">
+<button class="menu-btn" onclick="openSafe('https://graval-my.sharepoint.com/:x:/r/personal/reescobar_ventasyservicios_com_co/_layouts/15/Doc2.aspx?action=edit&amp;sourcedoc=%7B6c886857-7691-40c0-9bd9-6fa161fd59bb%7D&amp;wdOrigin=TEAMS-MAGLEV.undefined_ns.rwc&amp;wdExp=TEAMS-TREATMENT&amp;wdhostclicktime=1758725680137&amp;web=1&amp;xsdata=MDV8MDJ8fDI0OTVlNzljYzJjMzRkZTExNjNmMDhkZGZiN2E1MTlmfDEwYTc2NzEyOTRmNjQ2YTI5MTU1MzFiZDhiNzZmOTM3fDB8MHw2Mzg5NDMyMjQ5MzA0NDA3Njd8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pSbU1ESXpNakl3TFRrek9XWXRORGd3WkMxaE5UaGlMV0pqWW1Rd05XTXlPVEk0TVY5aVlqYzRZMkUzWlMxa1pEQXhMVFJsT1RjdFlXRXpNQzB3WVRrMk9UQmpORE16T1dWQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjMU9EY3lOVFk1TWpjd05RPT18YzBjZDYwMGM3MGFmNGU5YjE2M2YwOGRkZmI3YTUxOWZ8ZmQ4ODA4ZjFhZDA5NDlmM2EyMWQwZGFjMmFlNGM1MTQ%3D&amp;sdata=MzlRaXVKbnM3ME1DRitLVlRiN1pSanJjVnpnN05RRW5EM1h4V0lHcWVUUT0%3D&amp;ovuser=10a76712-94f6-46a2-9155-31bd8b76f937%2Csemilleroti%40ventasyservicios.com.co')">
   Disponibilidad
 </button>
 
     <button class="menu-btn" onclick="loadForm('citas')">Citas a laboratorio</button>
     <button class="menu-btn" onclick="loadForm('soporte')">Registrar Turno</button>
-   <button class="menu-btn" onclick="window.open('https://graval.sharepoint.com/sites/ServiceDeskTINEXABPO/_layouts/15/listforms.aspx?cid=NzBiMTYxNDUtNjgwMi00OTJhLTkwNGUtMDJkM2Q1ZDU3NjE3&nav=ZjQwMGYzMDItM2I4NS00NGEyLTlkMTMtNWM4NzY0ZDg0NzZi&xsdata=MDV8MDJ8fDY5NTYwMGI1MmRjNTRjMTM2NjM3MDhkZDcyYmFiZjkzfDEwYTc2NzEyOTRmNjQ2YTI5MTU1MzFiZDhiNzZmOTM3fDB8MHw2Mzg3OTI4Njg1NjAwNzAxOTl8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxMMk5vWVhSekx6RTVPbTFsWlhScGJtZGZUakpKTVZwdFJtMU9la1YwV1ZSRk5FOURNREJPUjBWNFRGUm9hVnBVV1hST2VsSnBUbnBvYVZwcVdUSk5ha2w1UUhSb2NtVmhaQzUyTWk5dFpYTnpZV2RsY3k4eE56UXpOamt3TURVME9UVTR8MTE4YTkxNGY0YTM5NGU3ZDY2MzcwOGRkNzJiYWJmOTN8NWNlYjU3MmM4MzRlNDA0ZWJmNDAxZjg4MjY4MWExMjk%3D&sdata=MHJ6c3FFaG9xYUpQclR4R0FiSlpMdVZEcXg0dlArWCtNd2MyVGRBTWM1UT0%3D&ovuser=10a76712-94f6-46a2-9155-31bd8b76f937%2Csemilleroti%40ventasyservicios.com.co','_blank')">
+   <button class="menu-btn" onclick="openSafe('https://graval.sharepoint.com/sites/ServiceDeskTINEXABPO/_layouts/15/listforms.aspx?cid=NzBiMTYxNDUtNjgwMi00OTJhLTkwNGUtMDJkM2Q1ZDU3NjE3&nav=ZjQwMGYzMDItM2I4NS00NGEyLTlkMTMtNWM4NzY0ZDg0NzZi&xsdata=MDV8MDJ8fDY5NTYwMGI1MmRjNTRjMTM2NjM3MDhkZDcyYmFiZjkzfDEwYTc2NzEyOTRmNjQ2YTI5MTU1MzFiZDhiNzZmOTM3fDB8MHw2Mzg3OTI4Njg1NjAwNzAxOTl8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxMMk5vWVhSekx6RTVPbTFsWlhScGJtZGZUakpKTVZwdFJtMU9la1YwV1ZSRk5FOURNREJPUjBWNFRGUm9hVnBVV1hST2VsSnBUbnBvYVZwcVdUSk5ha2w1UUhSb2NtVmhaQzUyTWk5dFpYTnpZV2RsY3k4eE56UXpOamt3TURVME9UVTR8MTE4YTkxNGY0YTM5NGU3ZDY2MzcwOGRkNzJiYWJmOTN8NWNlYjU3MmM4MzRlNDA0ZWJmNDAxZjg4MjY4MWExMjk%3D&sdata=MHJ6c3FFaG9xYUpQclR4R0FiSlpMdVZEcXg0dlArWCtNd2MyVGRBTWM1UT0%3D&ovuser=10a76712-94f6-46a2-9155-31bd8b76f937%2Csemilleroti%40ventasyservicios.com.co')">
   Soporte en sitio
 </button>
     <button class="menu-btn" onclick="loadForm('buzon')">Buzón de sugerencias</button>
@@ -332,6 +339,24 @@
   </div>
 
 <script>
+  // helper seguro para abrir URLs externas sin exponer window.opener
+  function openSafe(url) {
+    try {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.referrerPolicy = 'no-referrer';
+      // agregamos al DOM para asegurar compatibilidad y activamos el click
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch (e) {
+      // fallback
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  }
+
   // Submenús tipo acordeón
   document.querySelectorAll('[data-toggle]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -647,7 +672,7 @@ function copiarFormularioDoc() {
         <div style="text-align:center; padding:15px; background:#330033; color:#e066ff; font-weight:600;">
           ${type === 'citas' ? '🧪 Citas a laboratorio' : type === 'soporte' ? '📅Registrar turno' : '📬 Buzón de sugerencias'}
         </div>
-        <iframe src="${formURL}" allowfullscreen></iframe>
+        <iframe sandbox="allow-forms allow-scripts" referrerpolicy="no-referrer" src="${formURL}" allowfullscreen></iframe>
       `;
     }
   }
