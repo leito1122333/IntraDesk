@@ -1,22 +1,22 @@
 // helper seguro para abrir URLs externas sin exponer window.opener
-  function openSafe(url) {
-    try {
-      const a = document.createElement('a');
-      a.href = url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.referrerPolicy = 'no-referrer';
-      // agregamos al DOM para asegurar compatibilidad y activamos el click
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    } catch (e) {
-      // fallback
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
+function openSafe(url) {
+  try {
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.referrerPolicy = 'no-referrer';
+    // agregamos al DOM para asegurar compatibilidad y activamos el click
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  } catch (e) {
+    // fallback
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
+}
 
-  // Submenús tipo acordeón
+// Submenús tipo acordeón
   document.querySelectorAll('[data-toggle]').forEach(btn => {
     btn.addEventListener('click', () => {
       const submenuId = btn.getAttribute('data-toggle');
@@ -84,9 +84,7 @@ function loadFormDoc(tipo) {
 
         <label>Nos complace informarle que hemos culminado su solicitud con los siguientes datos.<br></label>
         
-
-        
-        <label>Numero del ticket</label>
+        <label><br>Numero del ticket:</label>
         <input type="text" id="numCaso" placeholder="Número del caso">
 
         <label>Estado:</label>
@@ -100,13 +98,13 @@ function loadFormDoc(tipo) {
 
         <label>Acciones realizadas:</label>
         <input type="text" id="accionesRealizadas" placeholder="Acciones realizadas...">
-        <br>
+
         <label><br>Evidencias:</label>
 
-       <label><br></label>
+        <label><br><br></label>
         <select id="firmaResolucion">
-         <option>Seleccione una opción...</option> 
-         <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
+        <br><option>Seleccione una opción...</option>
+        <option>Juan Marquez</option><option>Juan Rodriguez</option><option>Helber Bejarano</option>
           <option>Ingrid Tejero</option><option>Andres Avila</option><option>Sergio Gil</option>
           <option>Jhon Rivas</option><option>Stiven Avila</option><option>Mairon Ortiz</option>
           <option>Leonardo Mendoza</option><option>Sebastian Ramirez</option><option>David Botero</option>
@@ -144,13 +142,12 @@ function loadFormDoc(tipo) {
 
         <label>Hola,</label>
         <input type="text" id="personaDuplicado" placeholder="Nombre de la persona afectada">
-        <label>Te informamos que el ticket</label>
-
-        <label>Número ticket (actual):</label>
-        <input type="text" id="ticketDuplicado" placeholder="Número del ticket">
-        <label> ha sido cerrado, ya que corresponde a un duplicado del ticket(ticket anterior):</label> 
+        <label>Te informamos que el ticket:</label>
+        <input type="text" id="ticketDuplicado" placeholder="Ticket actual">
+        <label>ha sido cerrado, ya que corresponde a un duplicado del ticket:</label>
         <input type="text" id="ticketAnterior" placeholder="Ticket anterior">
-        <label>  La solicitud será gestionada a través del ticket anterior.</label>
+        <label>La solicitud será gestionada a través del ticket anterior.</label>
+ 
 
        <Br><Br>
         <label><br></label>
@@ -332,6 +329,24 @@ function copiarFormularioDoc() {
           ${type === 'citas' ? '🧪 Citas a laboratorio' : type === 'soporte' ? '📅Registrar turno' : '📬 Buzón de sugerencias'}
         </div>
         <iframe sandbox="allow-forms allow-scripts" referrerpolicy="no-referrer" src="${formURL}" allowfullscreen></iframe>
-      `;
-    }
+    `;
   }
+}
+
+// Botones externos que abren apps
+document.querySelectorAll('[data-external]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const url = btn.getAttribute('data-external');
+    openSafe(url);
+  });
+});
+
+// Ajuste responsivo para iframes
+window.addEventListener('resize', () => {
+  document.querySelectorAll('iframe').forEach(f => {
+    f.style.height = window.innerHeight - 150 + 'px';
+  });
+});
+
+// Inicializar altura de iframes al cargar
+window.dispatchEvent(new Event('resize'));
